@@ -1,36 +1,24 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import ProductListing from "./ProductListing";
 
 function HomePage() {
-    const [data, setData] = useState([]);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        axios.get("https://jsonplaceholder.typicode.com/posts")
-            .then(response => {
-                setData(response.data);
-            })
-            .catch(error => {
-                console.error("Error fetching data", error);
-            });
-    }, []);
-
-    const handleClick = (id) => {
-        navigate(`/posts/${id}`);
+    const handleClick = () => {
+        navigate("/products");
     };
 
     return (
-        <div className="container">
-            <h1>Home Page</h1>
-            <ul className="list-group">
-                {data.map(item => (
-                    <li key={item.id} className="list-group-item" onClick={() => handleClick(item.id)}>
-                        {item.title}
-                    </li>
-                ))}
-            </ul>
+        <div className="container d-flex flex-column justify-content-center align-items-center min-vh-100 text-center">
+            <h1>React Module Project</h1>
+            <p>Welcome to my FakeStoreApp.</p>
+            <button className="btn btn-primary mt-3" onClick={handleClick}>
+                Go to Products
+            </button>
         </div>
     );
 }
+
 export default HomePage;
