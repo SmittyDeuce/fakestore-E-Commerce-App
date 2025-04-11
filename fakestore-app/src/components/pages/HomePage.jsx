@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ProductListing from "./ProductListing";
-
 function HomePage() {
     const navigate = useNavigate();
 
