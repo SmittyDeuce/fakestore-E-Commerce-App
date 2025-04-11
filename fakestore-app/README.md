@@ -1,12 +1,66 @@
-# React + Vite
+# FakeStore API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 🏠 Home Page
+- Welcome message and brief store intro
+- Navigation button to Product Listing page
+- Styled with React Bootstrap
 
-Currently, two official plugins are available:
+### 🛒 Product Listing
+- Fetches products from `https://fakestoreapi.com/products`
+- Displays:
+  - Product image
+  - Title
+  - Price
+  - View Details button
+- Responsive layout using Bootstrap Grid
+- Uses React Router for navigation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 📄 Product Details
+- Fetches a single product by ID from the API
+- Displays:
+  - Product image
+  - Title
+  - Description
+  - Category
+  - Price
+- Includes:
+  - Button to delete product (with modal confirmation)
+  - Button to (optionally) add to cart
+- Handles loading and error states
 
-## Expanding the ESLint configuration
+### ➕ Add Product
+- Form to add a new product (POST request)
+- Fields:
+  - Title
+  - Price
+  - Description
+  - Category
+- Displays confirmation upon success
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### ✏️ Edit Product
+- Fetches product by ID
+- Form pre-filled with existing data
+- Allows editing and updating product (PUT request)
+- Displays success message
+
+### 🗑 Delete Product
+- Displays product info
+- Modal confirmation before deletion
+- Deletes from API (DELETE request)
+- Redirects to product listing on success
+
+### 🧭 Navigation
+- React Bootstrap navbar across all pages
+- Includes links to:
+  - Home (`/`)
+  - Product Listing (`/products`)
+  - Add Product (`/add-product`)
+- Collapsible for mobile views
+
+
+### Resources
+- **React**
+- **React Router DOM**
+- **Axios**
+- **React Bootstrap**
+- **FakeStore API**
