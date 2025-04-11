@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import ProductListing from "./components/pages/ProductListing";
 import ProductDetails from "./components/pages/ProductDetails";
 import AddProduct from "./components/pages/AddProduct";
+import Delete from "./components/Delete";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/products" element={<ProductListing />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/add-product" element={<AddProduct />} />
+        <Route path="/delete-product/:id" element={<Delete />} />
         {/* Add more routes here */}
       </Routes>
     </>

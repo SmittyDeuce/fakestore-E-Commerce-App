@@ -13,6 +13,8 @@ function NavBar() {
                     <NavLink to="/" className="nav-link">Home</NavLink>
                     <NavLink to="/products" className="nav-link">Product Listing</NavLink>
                     <NavLink to="/add-product" className="nav-link">Add Product</NavLink>
+                    <NavLink to="/delete-product/1" className="nav-link">Delete Product</NavLink>
+
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
