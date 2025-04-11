@@ -39,7 +39,7 @@ const ProductListing = () => {
                         <div className="card-body d-flex flex-column justify-content-between">
                             <h5 className="card-title fs-6">{product.title}</h5>
                             <p className="card-text text-muted">${product.price.toFixed(2)}</p>
-                            <Link to={`/product/${product.id}`}>
+                            <Link to={`/products/${product.id}`}>
                                 <Button variant="primary" size="sm">View Details</Button>
                             </Link>
                         </div>

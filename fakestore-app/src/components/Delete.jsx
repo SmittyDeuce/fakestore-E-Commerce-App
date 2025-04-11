@@ -7,13 +7,16 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Alert from "react-bootstrap/Alert";
+import Modal from "react-bootstrap/Modal";
 
 function Delete() {
   const { id } = useParams();
   const navigate = useNavigate();
+
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false); // 👈 State for Modal
 
   useEffect(() => {
     axios
@@ -32,10 +35,12 @@ function Delete() {
     axios
       .delete(`https://fakestoreapi.com/products/${id}`)
       .then(() => {
+        setShowModal(false);
         alert("Product deleted successfully");
         navigate("/products");
       })
       .catch(() => {
+        setShowModal(false);
         alert("Error deleting product");
       });
   };
@@ -64,7 +69,7 @@ function Delete() {
             </Form.Group>
 
             <div className="d-flex gap-3">
-              <Button variant="danger" onClick={handleDelete}>
+              <Button variant="danger" onClick={() => setShowModal(true)}>
                 Delete
               </Button>
               <Button variant="secondary" onClick={handleCancel}>
@@ -72,6 +77,23 @@ function Delete() {
               </Button>
             </div>
           </Form>
+
+          <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+            <Modal.Header closeButton>
+              <Modal.Title>Confirm Delete</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              Are you sure you want to delete <strong>{product.title}</strong>?
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={() => setShowModal(false)}>
+                Cancel
+              </Button>
+              <Button variant="danger" onClick={handleDelete}>
+                Yes, Delete
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </Col>
       </Row>
     </Container>
